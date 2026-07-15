@@ -18,7 +18,7 @@
   "image": "assets/products/kitchen-full.jpg",
   "description": "Complete modern kitchen: pale oak cabinetry, stone-look benchtop, black steel double sink and mixer, soft-close hardware. Delivered flat-packed Australia-wide.",
   "brand": { "@type": "Brand", "name": "FORMA Kitchens" },
-  "offers": { "@type": "Offer", "priceCurrency": "AUD", "price": "3490", "availability": "https://schema.org/InStock" }
+  "offers": { "@type": "Offer", "priceCurrency": "AUD", "price": "3490", "availability": "https://schema.org/LimitedAvailability" }
 }
 </script>
 </head>
@@ -35,7 +35,7 @@
     <a href="#faq">FAQ</a>
     <a href="index.html#collections">Custom Kitchens</a>
   </nav>
-  <a href="#order" class="header-cta">Order Now — $3,490</a>
+  <a href="#order" class="header-cta">Reserve — $200 Deposit</a>
   <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">&#9776;</button>
 </header>
 
@@ -46,7 +46,7 @@
   <a href="#delivery">Delivery</a>
   <a href="#faq">FAQ</a>
   <a href="index.html#collections">Custom Kitchens</a>
-  <a href="#order" class="btn btn-gold">Order Now — $3,490</a>
+  <a href="#order" class="btn btn-gold">Reserve — $200 Deposit</a>
 </nav>
 
 <!-- ============ HERO ============ -->
@@ -61,15 +61,17 @@
       <span class="p-price-note">Cabinetry &middot; benchtop &middot; sink &middot; tap &middot; soft-close everything</span>
     </div>
     <span class="p-real">This is a photo of the actual kitchen &mdash; not a render</span>
+    <!-- STOCK COUNTER — update these two numbers every shipment. Never show a number that isn't true. -->
+    <div class="stock-line" id="stock-line"><b>2 units</b> available from the current shipment &middot; next shipment lands in ~40 days</div>
     <div class="hero-ctas">
-      <a href="#order" class="btn btn-gold">Order Now</a>
+      <a href="#order" class="btn btn-gold">Reserve Your Kitchen &mdash; $200 Deposit</a>
       <!-- TODO: replace mailto with your FB Messenger link (m.me/yourpage) or SMS when ready -->
-      <a href="mailto:hello@formakitchens.com.au?subject=FORMA%20ONE%20order%20enquiry" class="btn btn-ghost">Message to Order</a>
+      <a href="mailto:hello@formakitchens.com.au?subject=FORMA%20ONE%20%E2%80%94%20reserve%20a%20unit" class="btn btn-ghost">Message to Secure a Unit</a>
     </div>
     <div class="hero-assure">
+      <span><b>$200</b> comes off the price</span>
+      <span><b>Fully refundable</b> until dispatch</span>
       <span><b>Real photos</b> from a real build</span>
-      <span><b>10-year</b> cabinetry warranty</span>
-      <span><b>Australia-wide</b> delivery</span>
     </div>
   </div>
 </section>
@@ -145,7 +147,7 @@
       </table>
     </div>
     <div class="process-cta-row" data-reveal>
-      <a href="#order" class="btn btn-gold">Order Now — $3,490</a>
+      <a href="#order" class="btn btn-gold">Reserve Your Kitchen — $200 Deposit</a>
       <span class="hint">Need different sizes? <a href="index.html#quote" style="color:var(--gold-text);">FORMA CUSTOM is cut to your walls &rarr;</a></span>
     </div>
   </div>
@@ -185,6 +187,10 @@
     <h2 class="h-section" data-reveal>Before you ask.</h2>
     <div class="faq-list" data-reveal>
       <details class="faq-item">
+        <summary>How does the $200 deposit work?</summary>
+        <div class="faq-body">It reserves a specific unit from the current shipment under your name, and it comes straight off the $3,490 — you're not paying extra to reserve. Fully refundable any time before dispatch: change your mind, message us, money back. We take deposits because each shipment is small and units genuinely do sell out.</div>
+      </details>
+      <details class="faq-item">
         <summary>Is it really only $3,490? What's the catch?</summary>
         <div class="faq-body">The catch is that you assemble it. That's it. There's no showroom, no salesperson and no installer in the price — that's the $10,000+ a renovation company adds on top of cabinets like these. The photos on this page are the actual product, benchtop and sink included.</div>
       </details>
@@ -215,18 +221,22 @@
 <!-- ============ ORDER ============ -->
 <section class="section quote-section" id="order">
   <div class="container-wide">
-    <span class="eyebrow" data-reveal>Order</span>
-    <h2 class="h-section" data-reveal>Lock one in.</h2>
+    <span class="eyebrow" data-reveal>Reserve</span>
+    <h2 class="h-section" data-reveal>Two units.<br>First deposits win.</h2>
     <div class="order-grid">
       <div data-reveal>
-        <p class="lead" style="margin:0 0 30px;">Send the order form and we'll come back within one business day with freight to your postcode and payment details. Nothing is charged until you confirm.</p>
+        <p class="lead" style="margin:0 0 30px;">A <b style="color:var(--gold-text);font-weight:500;">$200 deposit</b> holds a unit from the current shipment under your name. It comes straight off the $3,490, and it's fully refundable any time before dispatch — change your mind, get it back, no questions.</p>
         <div class="quote-benefit" style="border-top:1px solid var(--graphite);">
+          <h4>How it works</h4>
+          <p>Send the form &rarr; we reply with freight to your postcode and a secure deposit link &rarr; your unit is held for 48 hours while you decide. Nothing is charged by this form.</p>
+        </div>
+        <div class="quote-benefit">
           <h4>Prefer to talk first?</h4>
           <p>Message us and a human replies — usually within the hour, always the same day.</p>
         </div>
         <div class="order-msg-cta">
           <!-- TODO: swap mailto for m.me/yourpage or an SMS link -->
-          <a href="mailto:hello@formakitchens.com.au?subject=FORMA%20ONE%20enquiry" class="btn btn-ghost">Message to Order &rarr;</a>
+          <a href="mailto:hello@formakitchens.com.au?subject=FORMA%20ONE%20%E2%80%94%20reserve%20a%20unit" class="btn btn-ghost">Message to Secure a Unit &rarr;</a>
           <span class="hint" style="font-size:13px;color:var(--ash);font-weight:300;">Also sold on Facebook Marketplace — search "FORMA ONE kitchen".</span>
         </div>
       </div>
@@ -252,14 +262,14 @@
             <input type="text" name="notes" placeholder="Anything we should know? (optional)" class="full">
           </div>
         </fieldset>
-        <button type="submit" class="btn btn-gold btn-block">Order Now — $3,490</button>
-        <p class="quote-fine">Freight quoted before any payment &middot; 10-year cabinetry warranty &middot; damaged panels replaced free</p>
+        <button type="submit" class="btn btn-gold btn-block">Reserve Your Kitchen — $200 Deposit</button>
+        <p class="quote-fine">Deposit comes off your $3,490 &middot; fully refundable until dispatch &middot; nothing is charged by this form</p>
       </form>
 
       <div class="quote-success" id="order-success" hidden>
         <span class="tick">&#10003;</span>
-        <h3>Order received.</h3>
-        <p>We'll reply within one business day with your freight quote and payment details. Nothing is charged until you confirm — check your inbox (and spam) for our reply.</p>
+        <h3>Reservation received.</h3>
+        <p>We'll reply within the hour (same day at the latest) with freight to your postcode and your secure $200 deposit link. Your unit is held for 48 hours from that reply — check your inbox and spam.</p>
       </div>
     </div>
   </div>
@@ -299,7 +309,7 @@
 
 <!-- Sticky mobile CTA -->
 <div class="sticky-cta" id="sticky-cta">
-  <a href="#order" class="btn btn-gold">Order Now — $3,490</a>
+  <a href="#order" class="btn btn-gold">Reserve — $200 Deposit &middot; 2 left</a>
 </div>
 
 <script src="js/main.js"></script>

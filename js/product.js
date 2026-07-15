@@ -36,7 +36,7 @@
       showSuccess();
     }).catch(function () {
       btn.disabled = false;
-      btn.textContent = 'Order Now — $3,490';
+      btn.textContent = 'Reserve Your Kitchen — $200 Deposit';
       var err = document.getElementById('order-error');
       if (!err) {
         err = document.createElement('p');

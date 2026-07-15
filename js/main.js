@@ -104,6 +104,7 @@
   var ISLAND_FLAT = 2900; /* island module, flat add-on */
 
   var form = document.getElementById('estimator');
+  if (form) {
   var metres = document.getElementById('metres');
   var metresVal = document.getElementById('metres-val');
   var estimate = document.getElementById('estimate');
@@ -182,16 +183,20 @@
     });
   });
 
-  /* ---- Sticky mobile CTA: show after hero, hide over quote section ---- */
+  } /* end if (form) */
+
+  /* ---- Sticky mobile CTA: show after hero, hide over the form section ---- */
   var sticky = document.getElementById('sticky-cta');
   var hero = document.getElementById('top');
-  var quote = document.getElementById('quote');
-  var onStickyScroll = function () {
-    var pastHero = window.scrollY > hero.offsetHeight - window.innerHeight;
-    var q = quote.getBoundingClientRect();
-    var overQuote = q.top < window.innerHeight && q.bottom > 0;
-    sticky.classList.toggle('is-visible', pastHero && !overQuote);
-  };
-  window.addEventListener('scroll', onStickyScroll, { passive: true });
-  onStickyScroll();
+  var formSection = document.getElementById('quote') || document.getElementById('order');
+  if (sticky && hero && formSection) {
+    var onStickyScroll = function () {
+      var pastHero = window.scrollY > hero.offsetHeight - window.innerHeight;
+      var q = formSection.getBoundingClientRect();
+      var overForm = q.top < window.innerHeight && q.bottom > 0;
+      sticky.classList.toggle('is-visible', pastHero && !overForm);
+    };
+    window.addEventListener('scroll', onStickyScroll, { passive: true });
+    onStickyScroll();
+  }
 }());

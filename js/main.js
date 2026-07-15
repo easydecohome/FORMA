@@ -132,9 +132,17 @@
     });
   });
 
-  /* Submit: front-end success state.
-   * TODO: point this at your real endpoint (Formspree/Netlify/HubSpot/etc.)
-   * and forward: layout, metres, collection, estimate, name, phone, email, postcode. */
+  /* Submit → Netlify Forms (form name "quote").
+   * Submissions appear under Forms in the Netlify dashboard; set up an
+   * email notification there. On localhost there is no Netlify backend,
+   * so dev mode skips the POST and shows the success state directly. */
+  var showSuccess = function () {
+    form.hidden = true;
+    var success = document.getElementById('quote-success');
+    success.hidden = false;
+    success.classList.add('is-in');
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var required = form.querySelectorAll('input[required]');
@@ -144,11 +152,34 @@
       if (!f.value.trim()) { f.style.borderColor = '#FFC000'; ok = false; }
     });
     if (!ok) return;
-    form.hidden = true;
-    var success = document.getElementById('quote-success');
-    success.hidden = false;
-    success.classList.add('is-in');
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    document.getElementById('estimate-field').value = estimate.textContent;
+    var isLocal = /^(localhost|127\.|192\.168\.)/.test(window.location.hostname);
+    if (isLocal) { showSuccess(); return; }
+
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      showSuccess();
+    }).catch(function () {
+      btn.disabled = false;
+      btn.textContent = 'Send me my itemised quote';
+      var err = document.getElementById('quote-error');
+      if (!err) {
+        err = document.createElement('p');
+        err.id = 'quote-error';
+        err.className = 'quote-fine';
+        err.style.color = '#FFC000';
+        form.appendChild(err);
+      }
+      err.textContent = 'Something went wrong sending your request — please try again, or email hello@formakitchens.com.au directly.';
+    });
   });
 
   /* ---- Sticky mobile CTA: show after hero, hide over quote section ---- */

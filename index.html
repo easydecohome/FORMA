@@ -265,7 +265,10 @@
         </div>
       </div>
 
-      <form class="estimator" id="estimator" data-reveal novalidate>
+      <form class="estimator" id="estimator" name="quote" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-reveal novalidate>
+        <input type="hidden" name="form-name" value="quote">
+        <input type="hidden" name="estimate" id="estimate-field" value="">
+        <p hidden aria-hidden="true"><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <fieldset>
           <legend>1 &middot; Your layout</legend>
           <div class="opt-row" id="layout-opts">
@@ -278,7 +281,7 @@
         <fieldset>
           <legend>2 &middot; Total cabinet run</legend>
           <div class="range-row">
-            <input type="range" id="metres" min="2" max="14" step="0.5" value="7" aria-label="Total cabinet run in metres">
+            <input type="range" id="metres" name="metres" min="2" max="14" step="0.5" value="7" aria-label="Total cabinet run in metres">
             <span class="range-val" id="metres-val">7.0 m</span>
           </div>
         </fieldset>

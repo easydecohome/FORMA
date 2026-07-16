@@ -262,55 +262,144 @@
         </div>
       </div>
 
-      <form class="estimator" id="estimator" name="quote" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-reveal novalidate>
-        <input type="hidden" name="form-name" value="quote">
-        <input type="hidden" name="estimate" id="estimate-field" value="">
-        <p hidden aria-hidden="true"><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-        <fieldset>
-          <legend>1 &middot; Your layout</legend>
-          <div class="opt-row" id="layout-opts">
-            <label class="opt"><input type="radio" name="layout" value="galley" checked><span>Galley</span></label>
-            <label class="opt"><input type="radio" name="layout" value="l"><span>L-shape</span></label>
-            <label class="opt"><input type="radio" name="layout" value="u"><span>U-shape</span></label>
-            <label class="opt"><input type="radio" name="layout" value="island"><span>L + Island</span></label>
+      <!-- ---- MULTI-STEP FORM ---- -->
+      <div id="quote-form-container" class="quote-form-container" data-reveal>
+        
+        <!-- Progress Bar with Percentage -->
+        <div class="form-progress-container">
+          <div class="form-progress-bar"></div>
+          <div class="form-progress-info">
+            <span class="form-step-counter">Step 1 of 4</span>
+            <span class="form-progress-percent">25%</span>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend>2 &middot; Total cabinet run</legend>
-          <div class="range-row">
-            <input type="range" id="metres" name="metres" min="2" max="14" step="0.5" value="7" aria-label="Total cabinet run in metres">
-            <span class="range-val" id="metres-val">7.0 m</span>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>3 &middot; Finish</legend>
-          <div class="opt-row" id="collection-opts">
-            <label class="opt"><input type="radio" name="collection" value="lume" checked><span>Timber-look</span></label>
-            <label class="opt"><input type="radio" name="collection" value="nera"><span>Matte black</span></label>
-            <label class="opt"><input type="radio" name="collection" value="officina"><span>Steel grey</span></label>
-          </div>
-        </fieldset>
-
-        <div class="estimate-panel">
-          <div>
-            <span class="label">Estimated cabinetry</span>
-            <span class="estimate-figure" id="estimate">$5,000 &ndash; $6,400</span>
-          </div>
-          <span class="fine">Indicative only — your 48-hour quote is itemised and fixed.</span>
         </div>
 
-        <fieldset>
-          <legend>4 &middot; Where do we send it?</legend>
-          <div class="quote-fields">
-            <input type="text" name="name" placeholder="Name" autocomplete="name" required>
-            <input type="tel" name="phone" placeholder="Phone" autocomplete="tel" required>
-            <input type="email" name="email" placeholder="Email" autocomplete="email" class="full" required>
-            <input type="text" name="postcode" placeholder="Postcode" autocomplete="postal-code" class="full" required>
+        <!-- STEP 1: Contact Info -->
+        <div data-step="1">
+          <h3>👋 Hey there! Let's get started</h3>
+          <p class="step-subtitle">Just your name and email — takes 30 seconds</p>
+          
+          <div class="form-field">
+            <label for="form-name">Your name</label>
+            <input type="text" id="form-name" name="name" placeholder="First name is fine" data-form-input required>
           </div>
-        </fieldset>
-        <button type="submit" class="btn btn-gold btn-block">Send me my itemised quote</button>
-        <p class="quote-fine">Replied within 48 business hours &middot; no obligation &middot; no showroom hard-sell</p>
-      </form>
+
+          <div class="form-field">
+            <label for="form-email">Email address</label>
+            <input type="email" id="form-email" name="email" placeholder="you@example.com" data-form-input required>
+          </div>
+
+          <div class="form-field">
+            <label for="form-phone">Phone number</label>
+            <input type="tel" id="form-phone" name="phone" placeholder="(02) 1234 5678" data-form-input required>
+          </div>
+
+          <div class="form-hint">✨ This info stays between us — zero spam, promise.</div>
+        </div>
+
+        <!-- STEP 2: Layout Selection -->
+        <div data-step="2" hidden>
+          <h3>📐 What's your space like?</h3>
+          <p class="step-subtitle">Pick the layout that fits your kitchen</p>
+          
+          <div class="form-field">
+            <div class="option-grid full">
+              <label class="option-label">
+                <input type="radio" name="layout" value="galley" data-form-input checked>
+                <div class="option-card">🔲<br>Galley<br><span style="font-size:11px;color:var(--ash);">One wall</span></div>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="layout" value="l" data-form-input>
+                <div class="option-card">⌐<br>L-Shape<br><span style="font-size:11px;color:var(--ash);">Two walls</span></div>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="layout" value="u" data-form-input>
+                <div class="option-card">⊏<br>U-Shape<br><span style="font-size:11px;color:var(--ash);">Three walls</span></div>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="layout" value="island" data-form-input>
+                <div class="option-card">⊞<br>L + Island<br><span style="font-size:11px;color:var(--ash);">With island</span></div>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="form-metres">How much cabinet space? (metres)</label>
+            <div class="range-row">
+              <input type="range" id="form-metres" name="metres" class="range-input" min="2" max="14" step="0.5" value="7" data-form-input aria-label="Total cabinet run in metres">
+              <span class="range-val" id="metres-display">7.0m</span>
+            </div>
+            <p class="estimate-note">Slide to adjust — don't worry about being exact</p>
+          </div>
+
+          <div class="form-hint">🎯 Your quote updates in real-time below</div>
+        </div>
+
+        <!-- STEP 3: Finish Selection -->
+        <div data-step="3" hidden>
+          <h3>🎨 Choose your vibe</h3>
+          <p class="step-subtitle">What style speaks to you?</p>
+          
+          <div class="form-field">
+            <div class="option-grid full">
+              <label class="option-label">
+                <input type="radio" name="collection" value="lume" data-form-input checked>
+                <div class="option-card">🌳<br>Timber-look<br><span style="font-size:11px;color:var(--ash);">Warm & natural</span></div>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="collection" value="nera" data-form-input>
+                <div class="option-card">⬛<br>Matte Black<br><span style="font-size:11px;color:var(--ash);">Modern sleek</span></div>
+              </label>
+              <label class="option-label">
+                <input type="radio" name="collection" value="officina" data-form-input>
+                <div class="option-card">⬜<br>Steel Grey<br><span style="font-size:11px;color:var(--ash);">Industrial cool</span></div>
+              </label>
+            </div>
+          </div>
+
+          <div class="estimate-box">
+            <div class="estimate-label">💰 Your estimate:</div>
+            <div id="live-estimate">$5,320 – $6,384</div>
+            <p class="estimate-note">Locked in. Your designer will send itemised details within 48 hours.</p>
+          </div>
+
+          <div class="form-hint">✓ You're almost done! One more step...</div>
+        </div>
+
+        <!-- STEP 4: Confirmation -->
+        <div data-step="4" hidden>
+          <h3>🎉 Almost there!</h3>
+          <p class="step-subtitle">Just confirming everything looks right</p>
+          
+          <div class="estimate-box confirmation-box">
+            <div style="font-size:14px;line-height:2;color:var(--white);">
+              <div class="confirm-row"><span>👤 Name:</span> <strong id="confirm-name">—</strong></div>
+              <div class="confirm-row"><span>📧 Email:</span> <strong id="confirm-email">—</strong></div>
+              <div class="confirm-row"><span>📱 Phone:</span> <strong id="confirm-phone">—</strong></div>
+              
+              <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
+                <div class="confirm-row"><span>📐 Layout:</span> <strong id="confirm-layout">—</strong></div>
+                <div class="confirm-row"><span>📏 Size:</span> <strong id="confirm-metres">—</strong></div>
+                <div class="confirm-row"><span>🎨 Finish:</span> <strong id="confirm-collection">—</strong></div>
+                <div class="confirm-row" style="margin-top:12px;"><span>💛 Estimate:</span> <strong id="confirm-estimate" style="color:var(--gold);">—</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <p style="font-size:12px;color:var(--ash);margin-top:16px;text-align:center;">📬 We'll send your full quote within 48 business hours</p>
+
+          <div class="form-hint">✨ Ready to go? Hit the button below!</div>
+        </div>
+
+        <!-- Form Controls -->
+        <div class="form-controls">
+          <button id="form-prev" class="btn btn-secondary" hidden>← Back</button>
+          <button id="form-next" class="btn btn-gold">Next → Keep going</button>
+          <button id="form-submit" class="btn btn-gold btn-submit" hidden>✓ Send quote request</button>
+        </div>
+
+        <p style="font-size:11px;color:var(--ash);text-align:center;margin-top:16px;">💯 No obligation • No showroom hard-sell • We'll actually reply</p>
+      </div>
 
       <div class="quote-success" id="quote-success" hidden>
         <span class="tick">&#10003;</span>
@@ -372,5 +461,6 @@
 </div>
 
 <script src="js/main.js"></script>
+<script src="js/multi-step-form.js"></script>
 </body>
 </html>

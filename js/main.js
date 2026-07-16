@@ -74,9 +74,16 @@
     if (e.target.tagName === 'A') setDrawer(false);
   });
 
-  /* ---- Reveal on scroll ---- */
+  /* ---- Reveal on scroll ----
+   * Only opt into the hidden-by-default CSS once we know we can reveal again. */
   var revealEls = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window) {
+    document.documentElement.classList.add('js-reveals');
+    /* Safety net: if anything (throttled timeline, missed observer, slow device)
+     * leaves content hidden, force it visible rather than lose the sale. */
+    window.setTimeout(function () {
+      revealEls.forEach(function (el) { el.classList.add('is-in'); });
+    }, 4000);
     var groups = new Map();
     revealEls.forEach(function (el) {
       var p = el.parentElement;

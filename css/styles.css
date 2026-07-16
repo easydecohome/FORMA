@@ -841,6 +841,99 @@ img { max-width: 100%; }
 }
 
 /* ============================================================
+ * TRUST METRICS
+ * ============================================================ */
+.trust-metrics {
+  background: var(--light-bg);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  transition: all 200ms ease;
+}
+
+.metric-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.metric-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+  font-family: 'Archivo Narrow';
+}
+
+.metric-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+
+.metric-desc {
+  font-size: 13px;
+  color: var(--ash);
+  line-height: 1.5;
+}
+
+/* ============================================================
+ * FAQ SECTION
+ * ============================================================ */
+.faq-section {
+  background: var(--light-bg);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 28px;
+  transition: all 200ms ease;
+}
+
+.faq-item:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.faq-question {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.faq-answer {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ============================================================
  * TESTIMONIALS
  * ============================================================ */
 .testimonial-grid {
@@ -980,6 +1073,38 @@ img { max-width: 100%; }
 
   #live-estimate {
     font-size: 28px;
+  }
+
+  /* Trust Metrics */
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .metric-card {
+    padding: 24px;
+  }
+
+  .metric-number {
+    font-size: 36px;
+  }
+
+  /* FAQ */
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .faq-item {
+    padding: 20px;
+  }
+
+  .faq-question {
+    font-size: 15px;
+  }
+
+  .faq-answer {
+    font-size: 13px;
   }
 
   /* Testimonials */

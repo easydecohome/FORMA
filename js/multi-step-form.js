@@ -1,4 +1,4 @@
-/* FORMA Multi-Step Lead Form — Temu-style Engagement */
+/* FORMA Multi-Step Lead Form — Professional & Intentional */
 (function () {
   'use strict';
 
@@ -27,44 +27,6 @@
   const prevBtn = document.getElementById('form-prev');
   const submitBtn = document.getElementById('form-submit');
   const steps = document.querySelectorAll('[data-step]');
-
-  // ---- CONFETTI EFFECT ----
-  function fireConfetti() {
-    const container = document.createElement('div');
-    container.style.position = 'fixed';
-    container.style.top = '0';
-    container.style.left = '0';
-    container.style.width = '100%';
-    container.style.height = '100%';
-    container.style.pointerEvents = 'none';
-    container.style.zIndex = '9999';
-    document.body.appendChild(container);
-
-    for (let i = 0; i < 30; i++) {
-      const confetti = document.createElement('div');
-      confetti.textContent = ['🎉', '✨', '🌟', '💛', '🎊'][Math.floor(Math.random() * 5)];
-      confetti.style.position = 'fixed';
-      confetti.style.left = Math.random() * 100 + '%';
-      confetti.style.top = '-20px';
-      confetti.style.fontSize = '24px';
-      confetti.style.animation = `fall ${2 + Math.random() * 2}s linear forwards`;
-      confetti.style.opacity = '1';
-      container.appendChild(confetti);
-    }
-
-    setTimeout(() => container.remove(), 4000);
-  }
-
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes fall {
-      to { 
-        transform: translateY(100vh) rotate(360deg); 
-        opacity: 0;
-      }
-    }
-  `;
-  document.head.appendChild(style);
 
   // ---- INPUT LISTENERS ----
   const inputs = document.querySelectorAll('[data-form-input]');
@@ -221,8 +183,6 @@
       });
 
       if (response.ok || response.status === 404) {
-        fireConfetti();
-        
         const successMsg = document.getElementById('quote-success');
         form.hidden = true;
         if (successMsg) {
